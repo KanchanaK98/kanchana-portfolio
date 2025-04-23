@@ -1,0 +1,10 @@
+@echo off
+mkdir src\components\About
+mkdir src\components\Resume
+mkdir src\components\Services
+mkdir src\components\Contact
+mkdir src\components\Footer
+mkdir src\components\Loader
+mkdir src\assets
+mkdir src\assets\images
+mkdir src\assets\icons 
