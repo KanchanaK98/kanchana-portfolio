@@ -16,25 +16,28 @@ const Hero = () => {
   const tick = useCallback(() => {
     const i = loopNum % roles.length;
     const fullText = roles[i];
-    const updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
 
-    setText(updatedText);
+    setText(prevText => {
+      const updatedText = isDeleting
+        ? fullText.substring(0, prevText.length - 1)
+        : fullText.substring(0, prevText.length + 1);
 
-    if (isDeleting) {
-      setTypingSpeed(erasingDelay);
-    }
+      if (isDeleting) {
+        setTypingSpeed(erasingDelay);
+      }
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setTypingSpeed(newTextDelay);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setTypingSpeed(typingDelay);
-    }
-  }, [isDeleting, loopNum, text, roles, erasingDelay, newTextDelay, typingDelay]);
+      if (!isDeleting && updatedText === fullText) {
+        setIsDeleting(true);
+        setTypingSpeed(newTextDelay);
+      } else if (isDeleting && updatedText === '') {
+        setIsDeleting(false);
+        setLoopNum(prevLoop => prevLoop + 1);
+        setTypingSpeed(typingDelay);
+      }
+
+      return updatedText;
+    });
+  }, [isDeleting, loopNum, roles, erasingDelay, newTextDelay, typingDelay]);
 
   useEffect(() => {
     // Set hero background image using CSS variable
