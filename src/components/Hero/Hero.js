@@ -1,21 +1,22 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import './Hero.css';
 import heroBg from '../../assets/images/hero-bg.jpg';
+
+// Move constants outside component to prevent recreation on each render
+const ROLES = ['Software Engineer', 'Web Developer', 'Mobile App Developer', 'Guitarist'];
+const TYPING_DELAY = 150;
+const ERASING_DELAY = 100;
+const NEW_TEXT_DELAY = 2000;
 
 const Hero = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-
-  const roles = ['Software Engineer', 'Web Developer', 'Mobile App Developer', 'Guitarist'];
-  const typingDelay = 150;
-  const erasingDelay = 100;
-  const newTextDelay = 2000;
+  const [typingSpeed, setTypingSpeed] = useState(TYPING_DELAY);
 
   const tick = useCallback(() => {
-    const i = loopNum % roles.length;
-    const fullText = roles[i];
+    const i = loopNum % ROLES.length;
+    const fullText = ROLES[i];
 
     setText(prevText => {
       const updatedText = isDeleting
@@ -23,21 +24,21 @@ const Hero = () => {
         : fullText.substring(0, prevText.length + 1);
 
       if (isDeleting) {
-        setTypingSpeed(erasingDelay);
+        setTypingSpeed(ERASING_DELAY);
       }
 
       if (!isDeleting && updatedText === fullText) {
         setIsDeleting(true);
-        setTypingSpeed(newTextDelay);
+        setTypingSpeed(NEW_TEXT_DELAY);
       } else if (isDeleting && updatedText === '') {
         setIsDeleting(false);
         setLoopNum(prevLoop => prevLoop + 1);
-        setTypingSpeed(typingDelay);
+        setTypingSpeed(TYPING_DELAY);
       }
 
       return updatedText;
     });
-  }, [isDeleting, loopNum, roles, erasingDelay, newTextDelay, typingDelay]);
+  }, [isDeleting, loopNum]);
 
   useEffect(() => {
     // Set hero background image using CSS variable
