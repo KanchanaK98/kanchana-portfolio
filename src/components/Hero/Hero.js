@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './Hero.css';
 import heroBg from '../../assets/images/hero-bg.jpg';
 
@@ -13,18 +13,7 @@ const Hero = () => {
   const erasingDelay = 100;
   const newTextDelay = 2000;
 
-  useEffect(() => {
-    // Set hero background image using CSS variable
-    document.documentElement.style.setProperty('--hero-bg', `url(${heroBg})`);
-    
-    const ticker = setTimeout(() => {
-      tick();
-    }, typingSpeed);
-
-    return () => clearTimeout(ticker);
-  }, [text, isDeleting, loopNum, typingSpeed]);
-
-  const tick = () => {
+  const tick = useCallback(() => {
     const i = loopNum % roles.length;
     const fullText = roles[i];
     const updatedText = isDeleting
@@ -45,7 +34,18 @@ const Hero = () => {
       setLoopNum(loopNum + 1);
       setTypingSpeed(typingDelay);
     }
-  };
+  }, [isDeleting, loopNum, text, roles, erasingDelay, newTextDelay, typingDelay]);
+
+  useEffect(() => {
+    // Set hero background image using CSS variable
+    document.documentElement.style.setProperty('--hero-bg', `url(${heroBg})`);
+    
+    const ticker = setTimeout(() => {
+      tick();
+    }, typingSpeed);
+
+    return () => clearTimeout(ticker);
+  }, [tick, typingSpeed]);
 
   return (
     <section id="home" className="hero">
