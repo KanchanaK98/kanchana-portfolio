@@ -2,17 +2,26 @@
   background-color: var(--white);
   overflow: hidden;
   transition: background-color 0.3s ease;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .about-content {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 50px;
-  margin-bottom: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .about-img {
   position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .img-container {
@@ -21,6 +30,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  width: 100%;
 }
 
 .img-bg {
@@ -45,12 +55,19 @@
   transform: scale(1.05);
 }
 
+.about-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .about-text h3 {
   font-size: 1.8rem;
   color: var(--primary-color);
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 15px;
+  word-wrap: break-word;
 }
 
 .about-text h3::after {
@@ -67,6 +84,7 @@
   margin-bottom: 1.5rem;
   color: var(--text-color);
   line-height: 1.8;
+  word-wrap: break-word;
 }
 
 .about-info {
@@ -74,22 +92,24 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 15px 30px;
   margin: 2rem 0;
+  width: 100%;
 }
 
 .info-item {
   display: flex;
   align-items: flex-start;
+  gap: 10px;
 }
 
 .info-title {
   font-weight: 600;
   color: var(--primary-color);
-  margin-right: 10px;
   min-width: 100px;
 }
 
 .info-value {
   color: var(--text-color);
+  word-wrap: break-word;
 }
 
 .info-value.available {
@@ -257,32 +277,100 @@
 
 /* Responsive Design */
 @media (max-width: 991px) {
+  .about {
+    padding: 40px 15px;
+  }
+
   .about-content {
     grid-template-columns: 1fr;
     gap: 30px;
   }
   
   .about-img {
-    margin: 0 auto;
-    max-width: 400px;
+    max-width: 350px;
   }
-  
+
+  .about-text {
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about-info {
+    justify-items: center;
+  }
+
+  .info-item {
+    justify-content: center;
+    text-align: center;
+  }
+
   .skills-container {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 767px) {
+  .about {
+    padding: 30px 10px;
+  }
+
   .about-info {
     grid-template-columns: 1fr;
   }
-  
+
+  .info-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .info-title {
+    min-width: auto;
+  }
+
   .about-buttons {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 15px;
   }
-  
+
   .btn {
     width: 200px;
+  }
+}
+
+@media (max-width: 479px) {
+  .about {
+    padding: 20px 5px;
+  }
+
+  .about-content {
+    gap: 20px;
+  }
+
+  .about-img {
+    max-width: 300px;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+  }
+
+  .info-title {
+    font-size: 0.95rem;
+  }
+
+  .info-value {
+    font-size: 0.95rem;
   }
 }
