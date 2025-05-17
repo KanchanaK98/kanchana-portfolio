@@ -3,7 +3,6 @@ import './Navbar.css';
 import { ThemeContext } from '../../context/ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import logoImage from '../../assets/images/profile.jpg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +49,6 @@ const Navbar = () => {
       <div className="container">
         <nav className="navbar">
           <div className="navbar-logo">
-            <img src={logoImage} alt="Kanchana Logo" className="navbar-logo-img" />
             <a href="#home">Kanchana</a>
           </div>
 

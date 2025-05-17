@@ -72,23 +72,20 @@
 .about-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px 40px;
+  gap: 15px 30px;
   margin: 2rem 0;
 }
 
 .info-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
 }
 
 .info-title {
   font-weight: 600;
   color: var(--primary-color);
   margin-right: 10px;
-  min-width: 140px;
-  display: inline-block;
+  min-width: 100px;
 }
 
 .info-value {
@@ -278,11 +275,6 @@
 @media (max-width: 767px) {
   .about-info {
     grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  .info-title {
-    min-width: 120px;
   }
   
   .about-buttons {
@@ -292,11 +284,5 @@
   
   .btn {
     width: 200px;
-  }
-}
-
-@media (max-width: 479px) {
-  .info-title {
-    min-width: 100px;
   }
 }

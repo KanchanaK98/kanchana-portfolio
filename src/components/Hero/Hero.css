@@ -55,8 +55,8 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  opacity: 1;
-  animation: wavyText 4s ease infinite;
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards;
 }
 
 .name {
@@ -299,29 +299,5 @@
   
   .dynamic-text {
     font-size: 1.2rem;
-  }
-}
-
-@keyframes wavyText {
-  0% {
-    transform: translateY(0);
-  }
-  10% {
-    transform: translateY(-5px);
-  }
-  20% {
-    transform: rotateY(8deg) scale(1.05);
-  }
-  30% {
-    transform: rotateY(-8deg) scale(1.05);
-  }
-  40% {
-    transform: rotateY(4deg) scale(1.02);
-  }
-  50% {
-    transform: rotateY(0) scale(1);
-  }
-  100% {
-    transform: translateY(0);
   }
 } 

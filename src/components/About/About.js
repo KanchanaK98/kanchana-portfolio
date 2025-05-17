@@ -17,10 +17,10 @@ const About = () => {
           </div>
           
           <div className="about-text">
-            <h3>Software Engineer</h3>
+            <h3>Software Developer & Guitarist</h3>
             
             <p>
-              A Software Engineer at Geveo Australasia (PVT) Ltd and pursued my degree as a <strong>first class holder from the Faculty of Information Technology, University of Moratuwa, Sri Lanka.</strong> I have hands-on experience in web application development, mobile application development, and programming. Particularly, I am very excited to explore the fields of Artificial Intelligence and Machine Learning because of the transformational impact they have had on the technological world.
+              Hi, I'm <strong>Kanchana Kariyawasam, a Software Engineer @ Geveo Australasia (Pvt) Ltd, former a Student @ Faculty of Information Technology University of Moratuwa.</strong> I'm an enthusiastic individual who has always found interest in developing web & mobile applications. I'm always open to learning new skills and gaining new experiences.
             </p>
             
             <div className="about-info">
