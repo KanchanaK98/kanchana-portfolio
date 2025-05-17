@@ -3,20 +3,25 @@ import './Hero.css';
 import heroBg from '../../assets/images/hero-bg.jpg';
 
 // Move constants outside component to prevent recreation on each render
-const ROLES = ['Software Engineer', 'Web Developer', 'Mobile App Developer', 'Guitarist'];
-const TYPING_DELAY = 150;
-const ERASING_DELAY = 100;
-const NEW_TEXT_DELAY = 2000;
+const roles = [
+  'Software Engineer',
+  'Web Developer',
+  'Mobile App Developer',
+  'Guitarist'
+];
+const typingDelay = 100; // Faster typing
+const erasingDelay = 50; // Faster erasing
+const newTextDelay = 1500; // Shorter pause between words
 
 const Hero = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(TYPING_DELAY);
+  const [typingSpeed, setTypingSpeed] = useState(typingDelay);
 
   const tick = useCallback(() => {
-    const i = loopNum % ROLES.length;
-    const fullText = ROLES[i];
+    const i = loopNum % roles.length;
+    const fullText = roles[i];
 
     setText(prevText => {
       const updatedText = isDeleting
@@ -24,16 +29,16 @@ const Hero = () => {
         : fullText.substring(0, prevText.length + 1);
 
       if (isDeleting) {
-        setTypingSpeed(ERASING_DELAY);
+        setTypingSpeed(erasingDelay);
       }
 
       if (!isDeleting && updatedText === fullText) {
         setIsDeleting(true);
-        setTypingSpeed(NEW_TEXT_DELAY);
+        setTypingSpeed(newTextDelay);
       } else if (isDeleting && updatedText === '') {
         setIsDeleting(false);
         setLoopNum(prevLoop => prevLoop + 1);
-        setTypingSpeed(TYPING_DELAY);
+        setTypingSpeed(typingDelay);
       }
 
       return updatedText;

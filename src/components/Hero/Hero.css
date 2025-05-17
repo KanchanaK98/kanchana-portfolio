@@ -92,13 +92,15 @@
 .cursor {
   display: inline-block;
   width: 3px;
+  height: 1.2em;
   background-color: var(--white);
   margin-left: 2px;
-  animation: blink 1s infinite;
+  animation: blink 0.7s step-end infinite;
+  vertical-align: middle;
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
+  from, to { opacity: 1; }
   50% { opacity: 0; }
 }
 
@@ -179,6 +181,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 0 auto 10px;
 }
 
@@ -188,9 +191,9 @@
   background-color: var(--white);
   border-radius: 3px;
   position: absolute;
-  top: 10px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   animation: wheel 1.5s infinite;
 }
 
@@ -212,12 +215,12 @@
 
 @keyframes wheel {
   0% {
-    transform: translateX(-50%) translateY(0);
     opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
   }
   100% {
-    transform: translateX(-50%) translateY(15px);
     opacity: 0;
+    transform: translate(-50%, -50%) translateY(15px);
   }
 }
 
