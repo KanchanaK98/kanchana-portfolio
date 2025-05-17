@@ -38,7 +38,6 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
 body {
@@ -202,100 +201,24 @@ button {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
 @media (max-width: 991px) {
-  .container {
-    max-width: 720px;
-  }
-  
   .section-title {
     font-size: 2rem;
-  }
-
-  .section {
-    padding: 4rem 0;
   }
 }
 
 @media (max-width: 767px) {
-  .container {
-    max-width: 540px;
-    padding: 0 1rem;
-  }
-  
   .section {
     padding: 3rem 0;
   }
   
   .section-title {
     font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1.5rem;
-    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 575px) {
-  .container {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-
+@media (max-width: 479px) {
   body {
     font-size: 14px;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  .btn {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-}
-
-/* Add fluid typography */
-@media (max-width: 1200px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 991px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 767px) {
-  html {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 575px) {
-  html {
-    font-size: 12px;
   }
 }
