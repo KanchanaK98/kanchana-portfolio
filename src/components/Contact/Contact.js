@@ -116,11 +116,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact section">
+    <section id="contact" className="contact section" style={{ alignItems: 'center' }}>
       <div className="container">
         <h2 className="section-title">Contact Me</h2>
         
-        <div className="contact-container">
+        <div className="contact-container" style={{ alignItems: 'center' }}>
           <div className="contact-info">
             <div className="info-item">
               <h3>Location:</h3>
@@ -156,7 +156,7 @@ const Contact = () => {
             </div>
           </div>
           
-          <div className="contact-form">
+          <div className="contact-form" style={{ alignItems: 'center' }}>
             {formSubmitted ? (
               <div className="success-message">
                 <h3>Thank You!</h3>
