@@ -22,6 +22,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .img-container {
@@ -31,6 +32,7 @@
   overflow: hidden;
   box-shadow: var(--shadow);
   width: 100%;
+  margin-bottom: 0;
 }
 
 .img-bg {
@@ -59,6 +61,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 0;
 }
 
 .about-text h3 {
@@ -319,6 +322,14 @@
     padding: 30px 10px;
   }
 
+  .about-content {
+    gap: 25px;
+  }
+
+  .about-img {
+    max-width: 300px;
+  }
+
   .about-info {
     grid-template-columns: 1fr;
   }
@@ -355,7 +366,7 @@
   }
 
   .about-img {
-    max-width: 300px;
+    max-width: 280px;
   }
 
   .about-text h3 {
