@@ -9,12 +9,6 @@ const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID;
 const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 
-// Debug
-console.log('Contact Component - EmailJS Configuration:');
-console.log('USER_ID Available:', EMAILJS_USER_ID ? 'Yes' : 'No');
-console.log('SERVICE_ID:', EMAILJS_SERVICE_ID);
-console.log('TEMPLATE_ID:', EMAILJS_TEMPLATE_ID);
-
 const Contact = () => {
   const form = useRef();
   const [formData, setFormData] = useState({

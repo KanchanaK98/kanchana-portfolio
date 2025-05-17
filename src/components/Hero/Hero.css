@@ -11,6 +11,7 @@
   justify-content: center;
   color: var(--white);
   z-index: 1;
+  text-align: center;
 }
 
 .hero-overlay {
@@ -32,11 +33,19 @@
   text-align: center;
   z-index: 2;
   animation: fadeIn 1s ease;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .hero-text {
   max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .greeting, .name, .static-text, .typing, .cursor {
@@ -55,8 +64,8 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  opacity: 0;
-  animation: slideUp 0.8s ease forwards;
+  opacity: 1;
+  animation: wavyText 4s ease infinite;
 }
 
 .name {
@@ -78,6 +87,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  text-align: center;
 }
 
 .static-text {
@@ -87,6 +97,7 @@
 .typing {
   color: var(--white);
   position: relative;
+  text-align: center;
 }
 
 .cursor {
@@ -111,6 +122,7 @@
   gap: 20px;
   opacity: 0;
   animation: slideUp 0.8s ease 0.6s forwards;
+  width: 100%;
 }
 
 /* Hero specific button styles */
@@ -299,5 +311,29 @@
   
   .dynamic-text {
     font-size: 1.2rem;
+  }
+} 
+
+@keyframes wavyText {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-5px);
+  }
+  20% {
+    transform: rotateY(8deg) scale(1.05);
+  }
+  30% {
+    transform: rotateY(-8deg) scale(1.05);
+  }
+  40% {
+    transform: rotateY(4deg) scale(1.02);
+  }
+  50% {
+    transform: rotateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(0);
   }
 } 
